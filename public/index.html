@@ -31,8 +31,42 @@
     <meta property="twitter:title" content="Ciademy" />
     <meta property="twitter:description" content="Ciademy is a digital e-learning platform" />
     <meta property="twitter:image" content="https://ciademy.com/logo.png" />
-    <script type="module" crossorigin src="/assets/main-nmRUI8-2.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-CwtPyc9H.css">
+
+    <script>
+      const metaConfig = {
+        '/quiz': {
+          image: 'https://ciademy.com/quiz.webp',
+          title: 'Quiz | Ciademy',
+          description: 'Test your knowledge with Quiz'
+        }
+      }
+
+      const path = window.location.pathname
+      const matchedMeta = Object.keys(metaConfig).find(
+        (key) => path === key || path.startsWith(key)
+      )
+
+      if (matchedMeta) {
+        const meta = metaConfig[matchedMeta]
+
+        document.title = meta.title
+        document.querySelector('meta[name="description"]').setAttribute('content', meta.description)
+
+        document.querySelector('meta[property="og:title"]').setAttribute('content', meta.title)
+        document
+          .querySelector('meta[property="og:description"]')
+          .setAttribute('content', meta.description)
+        document.querySelector('meta[property="og:image"]').setAttribute('content', meta.image)
+
+        document.querySelector('meta[property="twitter:title"]').setAttribute('content', meta.title)
+        document
+          .querySelector('meta[property="twitter:description"]')
+          .setAttribute('content', meta.description)
+        document.querySelector('meta[property="twitter:image"]').setAttribute('content', meta.image)
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-DgW0pWoJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CwtPyc9H.css">
   </head>
   <body class="font-noto-bangla bg-gray-100 overflow-y-scroll scrollbar scroll-smooth">
     <div id="app"></div>
