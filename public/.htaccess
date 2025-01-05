@@ -14,5 +14,8 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 
-# Rewrite to index.html
-RewriteRule . index.html [L]
+# Rewrite /quiz, /quiz/, or /quiz/:id to quiz/index.html
+RewriteRule ^quiz(/.*|/([a-zA-Z0-9_-]+))?$ quiz/index.html [L]
+
+# Rewrite all other requests to their respective index.html
+RewriteRule ^.*$ index.html [L]
