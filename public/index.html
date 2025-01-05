@@ -1,12 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#075985" />
+    <meta name="msapplication-navbutton-color" content="#075985" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#075985" />
+
     <title>Ciademy</title>
-    <script type="module" crossorigin src="/assets/index-DIWD3pil.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CoUkA3T8.css">
+    <meta name="description" content="Ciademy is a digital e-learning platform" />
+    <meta
+      name="keywords"
+      content="Ciademy, e-learning, Admission, HSC, Skills, English Spoken, IELTS"
+    />
+    <meta name="author" content="Ciademy" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ciademy.com/" />
+    <meta property="og:title" content="Ciademy" />
+    <meta property="og:description" content="Ciademy is a digital e-learning platform" />
+    <meta property="og:image" content="https://ciademy.com/logo.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://ciademy.com/" />
+    <meta property="twitter:title" content="Ciademy" />
+    <meta property="twitter:description" content="Ciademy is a digital e-learning platform" />
+    <meta property="twitter:image" content="https://ciademy.com/logo.png" />
+
+    <script>
+      const metaConfig = {
+        '/quiz': {
+          image: 'https://ciademy.com/quiz.webp',
+          title: 'Quiz | Ciademy',
+          description: 'Test your knowledge with Quiz'
+        }
+      }
+
+      const path = window.location.pathname
+      const matchedMeta = Object.keys(metaConfig).find(
+        (key) => path === key || path.startsWith(key)
+      )
+
+      if (matchedMeta) {
+        const meta = metaConfig[matchedMeta]
+
+        document.title = meta.title
+        document.querySelector('meta[name="description"]').setAttribute('content', meta.description)
+
+        document.querySelector('meta[property="og:title"]').setAttribute('content', meta.title)
+        document
+          .querySelector('meta[property="og:description"]')
+          .setAttribute('content', meta.description)
+        document.querySelector('meta[property="og:image"]').setAttribute('content', meta.image)
+
+        document.querySelector('meta[property="twitter:title"]').setAttribute('content', meta.title)
+        document
+          .querySelector('meta[property="twitter:description"]')
+          .setAttribute('content', meta.description)
+        document.querySelector('meta[property="twitter:image"]').setAttribute('content', meta.image)
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-DgW0pWoJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CwtPyc9H.css">
   </head>
   <body class="font-noto-bangla bg-gray-100 overflow-y-scroll scrollbar scroll-smooth">
     <div id="app"></div>
